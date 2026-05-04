@@ -1,0 +1,14 @@
+{
+  "name": "git-flow",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Primera aplicación Leidy Solarte Flow",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "echo 'sin build necesario'"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
