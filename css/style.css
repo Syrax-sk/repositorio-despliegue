@@ -1,0 +1,120 @@
+/* 🌈 Fondo general (más suave y menos luminoso) */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #e9ddf5, #f4d6e8);
+    margin: 0;
+    padding: 20px;
+    color: #4a3b5c;
+}
+
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 6px 18px rgba(100, 80, 140, 0.12);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: #000;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1.5px solid #d6c6e1;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #c084c0;
+    box-shadow: 0 0 4px #e5c7e5;
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    background: #f4a7c5;
+    color: rgb(19, 10, 10);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #ec8fb3;
+    transform: scale(1.03);
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #f7eaf4;
+    border-left: 4px solid #d49ac2;
+}
+
+
+#test-results {
+    margin-top: 10px;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+#test-results div {
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+#cajas {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.box {
+    background: #eadcf3;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #4a3b5c;
+    box-shadow: 1px 1px 4px rgba(100, 80, 140, 0.15);
+    transition: 0.2s;
+}
+
+
+.box:hover {
+    transform: scale(1.1);
+    background: #d8c3e8;
+}
+
+
+body::before {
+    content: "";
+    background: url("https://preview.redd.it/jake-the-dog-v0-0rrmi3vanahe1.png?width=640&crop=smart&auto=webp&s=53dce7a302b1b5f10d97248a2617fe66a90375a5") no-repeat center;
+    background-size: 300px;
+    opacity: 0.13;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}

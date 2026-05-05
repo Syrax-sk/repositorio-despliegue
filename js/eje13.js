@@ -1,3 +1,4 @@
+// eje13.js
 function fnBuscarElementoWhile(data, value) {
     let index = 0;
 
@@ -10,4 +11,5 @@ function fnBuscarElementoWhile(data, value) {
 
     return -1;
 }
+
 export { fnBuscarElementoWhile };
