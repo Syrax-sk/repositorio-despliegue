@@ -4,10 +4,4 @@ import * as eje13 from "./eje13.js";
 import * as eje14 from "./eje14.js";
 import * as eje15 from "./eje15.js";
 
-export {
-    eje11,
-    eje12,
-    eje13,
-    eje14,
-    eje15
-};
+export { eje11, eje12, eje13, eje14, eje15 };

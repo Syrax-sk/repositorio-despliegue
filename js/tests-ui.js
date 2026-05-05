@@ -1,51 +1,51 @@
-import { fnSumaVectorFor } from "./eje11.js";
-import { fnMaximoVectorFor } from "./eje12.js";
-import { fnBuscarElementoWhile } from "./eje13.js";
-import { fnInvertirVectorFor } from "./eje14.js";
-import { fnContarPares } from "./eje15.js";
+import * as combine from "./combine.js";
 
-window.addEventListener("DOMContentLoaded", () => {
+const btnTests = document.getElementById("run-tests");
+const resultados = document.getElementById("test-results");
+const operacionSelect = document.getElementById("operacion");
 
-    const out = document.getElementById("test-results");
-    const btn = document.getElementById("run-tests");
+btnTests.addEventListener("click", ejecutarTests);
 
-    function log(msg, ok) {
-        const div = document.createElement("div");
-        div.textContent = (ok ? "✅ " : "❌ ") + msg;
-        div.style.color = ok ? "green" : "red";
-        out.appendChild(div);
+function ejecutarTests() {
+    const operacion = operacionSelect.value;
+    let salida = "";
+
+    function test(nombre, condicion) {
+        salida += `<div>${condicion ? "✅" : "❌"} ${nombre}</div>`;
     }
 
-    function clear() {
-        out.innerHTML = "";
+    switch (operacion) {
+
+        case "eje11":
+            test("Suma básica", combine.eje11.fnSumaVectorFor([1,2,3]) === 6);
+            test("Suma con negativos", combine.eje11.fnSumaVectorFor([-1,1]) === 0);
+            break;
+
+        case "eje12":
+            test("Máximo normal", combine.eje12.fnMaximoVectorFor([1,9,3]) === 9);
+            test("Máximo negativos", combine.eje12.fnMaximoVectorFor([-5,-2,-9]) === -2);
+            break;
+
+        case "eje13":
+            test("Elemento encontrado", combine.eje13.fnBuscarElementoWhile([5,6,7], 6) === 1);
+            test("Elemento no encontrado", combine.eje13.fnBuscarElementoWhile([1,2,3], 9) === -1);
+            break;
+
+        case "eje14":
+            test(
+                "Invertir vector",
+                JSON.stringify(combine.eje14.fnInvertirVectorFor([1,2,3])) === JSON.stringify([3,2,1])
+            );
+            break;
+
+        case "eje15":
+            test("Contar pares", combine.eje15.fnContarPares([1,2,3,4]) === 2);
+            test("Sin pares", combine.eje15.fnContarPares([1,3,5]) === 0);
+            break;
+
+        default:
+            salida = "⚠️ Selecciona un ejercicio primero";
     }
 
-    function runTests() {
-        clear();
-
-        let r1 = fnSumaVectorFor([1,2,3]) === 6;
-        log("Suma", r1);
-
-        let r2 = fnMaximoVectorFor([1,9,3]) === 9;
-        log("Máximo", r2);
-
-        let r3 = fnBuscarElementoWhile([10,20,30], 20) === 1;
-        log("Buscar", r3);
-
-        let inv = fnInvertirVectorFor([1,2,3]);
-        let r4 = JSON.stringify(inv) === JSON.stringify([3,2,1]);
-        log("Invertir", r4);
-
-        let r5 = fnContarPares([1,2,4,5,6]) === 3;
-        log("Pares", r5);
-
-        log(
-            `RESULTADO FINAL: ${
-                [r1,r2,r3,r4,r5].filter(Boolean).length
-            }/5`,
-            [r1,r2,r3,r4,r5].every(Boolean)
-        );
-    }
-
-    btn.addEventListener("click", runTests);
-});
+    resultados.innerHTML = salida;
+}

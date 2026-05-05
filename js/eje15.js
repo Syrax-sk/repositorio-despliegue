@@ -1,3 +1,4 @@
+// eje15.js
 function fnContarPares(numbers) {
     let contador = 0;
 
@@ -9,4 +10,5 @@ function fnContarPares(numbers) {
 
     return contador;
 }
+
 export { fnContarPares };
